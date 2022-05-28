@@ -1,19 +1,19 @@
 import React from 'react'
-import styles from "../../src/style/navbar.css";
+import  "../../src/style/navbar.css";
  
 const Navbar = () =>{
   return (
-    <header className={styles.header}>
+    <header className="header">
         
-        <div className={styles.listcontainer}>
-            <ul className={styles.list}>
+        <div className="list-container">
+            <ul className="list">
                 <li> HOME PAGE</li>
                 <li> PRODUCT</li>
                 <li> CONECT US</li>
             </ul>
         </div>
-        <div className={styles.logo}>
-            <img src=''></img>
+        <div className="logo">
+            <img src='' alt=''></img>
         </div>
     </header>
     
