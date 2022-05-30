@@ -4,17 +4,18 @@ import  "../../src/style/navbar.css";
 const Navbar = () =>{
   return (
     <header className="header">
-        
+        <div className="logo">
+            <img src='' alt='لوگو'></img>
+        </div>
         <div className="list-container">
             <ul className="list">
-                <li> HOME PAGE</li>
-                <li> PRODUCT</li>
-                <li> CONECT US</li>
+                <li> صفحه اصلی
+                </li>
+                <li>محصولات</li>
+                <li>تماس با ما</li>
             </ul>
         </div>
-        <div className="logo">
-            <img src='' alt=''></img>
-        </div>
+        
     </header>
     
   );
