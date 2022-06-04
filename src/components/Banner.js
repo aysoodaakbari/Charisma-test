@@ -1,12 +1,12 @@
 import React from 'react'
 import "../style/banner.css"
-import  banner from "../img/computer-cup-desk-drink-434337.jpg"
+// import  banner from "../img/computer-cup-desk-drink-434337.jpg"
 
  function Banner() {
   return (
     <div className='container'>
       
-        < img src={banner}></img>
+        {/* < img src={banner}></img> */}
         <div className='textContainer'>
         <h1>فروشگاه اینترنتی</h1>
         <p>فروش اینترنتی موبایل در فروشگاه اینترنتی کالاتیک
