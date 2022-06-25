@@ -10,9 +10,9 @@ import iphonex from "../img/iphonex.jpg"
     return (
       <div className='Cards_container'> 
           <Card image = {iphonex} name ="آیفونX" price="17,000,000,000"/>
-          <Card image = {iphonex} name ="آیفونX" price="17,000,000,000"/>
-          <Card image = {iphonex} name ="آیفونX" price="17,000,000,000"/>
-          <Card image = {iphonex} name ="آیفونX" price="17,000,000,000"/>
+          <Card image = {iphonex} name ="آیفونX" price="23,000,000,000"/>
+          <Card image = {iphonex} name ="آیفونX" price="12,000,000,000"/>
+          <Card image = {iphonex} name ="آیفونX" price="45,000,000,000"/>
 
 
       </div>
