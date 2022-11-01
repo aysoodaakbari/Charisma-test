@@ -3,9 +3,13 @@ import React, { useEffect, useState } from 'react'
 import Additemtolist from '../redux/List1/FirstListAction'
 import initStateType from '../Types'
 import axios from 'axios'
+import List from './List'
 
 
 function FirstList() {
+  const state=useSelector((state:initStateType)=>state.items)
+  const dispatch=useDispatch()
+ 
   interface post{
     id:number,
     title:string
@@ -21,17 +25,17 @@ useEffect(() => {
 );
 }, []);
   
-  const state=useSelector((state:initStateType)=>state.items)
-  const dispatch=useDispatch()
  
   return (
 
     <>
-    
+         <><ul>{post && post.map((p)=>
+        <div onClick={() => { dispatch(Additemtolist({ id: 0, title: p.title })) } }>{p.title}</div>
+    )}</ul></>
 
-   { state.map((item)=><li>{item.id}</li>)}
+   { state.map((item)=><li>{item.title}</li>)}
  
-     <button onClick={() => { dispatch(Additemtolist({ id: 0, title: "ff" })) } }></button>
+     <button ></button>
      
      </>
   
