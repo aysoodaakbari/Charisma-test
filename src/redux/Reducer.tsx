@@ -1,9 +1,9 @@
 import React from "react"
-import Additemtolist from '../redux/List1/FirstListAction'
+
 
 
  interface itemsType{
-    id:string,
+    id:number,
     title:string,
 }
 interface initStateType{
@@ -22,7 +22,16 @@ const Reducer = (state=initState,action: { type: any ,item:itemsType})=>{
           items:state.items.concat(action.item),
 
             }
+            case "REMOVE_FROM_LIST":
+            return{
+           items:state.items.filter(delitem=>delitem.id!== action.item.id),
+
+            }
+            case "REMOVE_ALL_LIST":
+                return{
+               items:[],
     
+                }
         default:
             return state
     }
