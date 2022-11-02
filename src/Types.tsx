@@ -1,6 +1,6 @@
 
 export default interface itemsType{
-    id:string,
+    id:number,
     title:string,
 }
 export default interface initStateType{

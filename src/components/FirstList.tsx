@@ -3,8 +3,10 @@ import React, { useEffect, useState } from 'react'
 import initStateType from '../Types'
 import axios from 'axios'
 
-import { Box, Button, ButtonBase, Card, CardActions, CardContent, Typography } from '@mui/material'
+import { AppBar, Box, Button, ButtonBase, Card, CardActions, CardContent, IconButton, List, Toolbar, Typography } from '@mui/material'
 import { Additemtolist,RemoveAllItemtolist,Removeitemtolist } from '../redux/List1/FirstListAction'
+import { title } from 'process'
+import { wrap } from 'module'
 
 
 function FirstList() {
@@ -34,28 +36,35 @@ useEffect(() => {
 );
 }, []);
 const[searchText,setsearchText]=useState('')
-const handelsearch=(e:any)=>{
 
-}
-const filterlist=post.filter(
-  ({id,title})=>
-  {
-    title.toLowerCase().includes(searchText.toLowerCase())
-  }
-);
+
  
   return (
 
     <div className=''>
 
-    <input  onChange={({ target }) => setsearchText(target.value)}></input>
-
-    <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(3, 3fr)' }}>
-
-      <ul>{post && post.map((p)=>
+<Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static">
+        <Toolbar>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+          >
+          </IconButton>
           
-   <Card sx={{ minWidth: 275,marginTop:6 }}>
-     <ButtonBase onClick={() => { dispatch(Additemtolist({ id: 0, title: p.title })) }}>
+        </Toolbar>
+      </AppBar>
+    </Box>
+
+    <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)' }}>
+
+    <List style={{maxHeight: '300', overflowY: 'auto'}} >{post && post.map((p)=>
+          
+   <Card sx={{ minWidth: 275,marginTop:3 }} key={p.title}>
+     <ButtonBase onClick={() => { dispatch(Additemtolist({ id:p.id, title: p.title })) }}>
       <CardContent>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
           Word of the Day
@@ -68,11 +77,11 @@ const filterlist=post.filter(
       </ButtonBase>
     </Card>
     )}
-    </ul>
+    </List>
 
      <ul>{product && product.map((p)=>
-           <Card sx={{ minWidth: 100,marginTop:6 }}>
-           <ButtonBase onClick={() => { dispatch(Additemtolist({ id: 0, title: p.title })) }}>
+           <Card sx={{ minWidth: 100,marginTop:3}} key={`index-${p.id}`}>
+           <ButtonBase onClick={() => { dispatch(Additemtolist({ id:p.id, title: p.title })) }}>
             <CardContent>
               <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
                Click here
@@ -87,36 +96,27 @@ const filterlist=post.filter(
         </ul>
  
 
-   <ul> { state.map((item)=><Card sx={{ minWidth: 100,marginTop:6 , bgcolor:'primary.main'}}>
-           <ButtonBase onClick={() => { dispatch(Removeitemtolist({ id: 0, title: item.title })) }}>
+  <ul style={{flexDirection: 'row', flexWrap: 'wrap' }}> { state.map((item)=><Card sx={{  height:40 ,marginTop:6 , bgcolor:'primary.main',borderRadius: '20%'}}>
+           <ButtonBase onClick={() => { dispatch(Removeitemtolist({ id:item.id , title: item.title })) }}>
             <CardContent>
-              <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-               Click here
-              </Typography>
               <Typography sx={{ mb: 1.5 }} color="text.secondary">
               {item.title}
               </Typography>
       
             </CardContent>
             </ButtonBase>
-          </Card>)}</ul> 
-
+          </Card>)}
+          </ul>
         
 </Box>
-<Button onClick={() => { dispatch(RemoveAllItemtolist()) }}>
+<Button sx={{bgcolor:'primary.main', minWidth:'100%' ,color:'text.secondary'}} onClick={() => { dispatch(RemoveAllItemtolist()) }}>
  Clear All
 </Button>
         
 
 
-<ul>
-{ 
-filterlist.map((title)=>
-<li key={title.title}>
-  {title.title}
 
-</li>) }
-</ul>
+
 
 
  

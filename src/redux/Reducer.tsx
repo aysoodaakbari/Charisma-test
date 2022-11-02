@@ -24,7 +24,9 @@ const Reducer = (state=initState,action: { type: any ,item:itemsType})=>{
             }
             case "REMOVE_FROM_LIST":
             return{
-           items:state.items.filter(delitem=>delitem.id!== action.item.id),
+           items: state.items.filter((it) => {
+            return action.item.id!== it.id;
+        })
 
             }
             case "REMOVE_ALL_LIST":
